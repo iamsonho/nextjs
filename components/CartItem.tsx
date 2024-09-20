@@ -1,4 +1,4 @@
-import { useDispatchCart } from "@/modules/AppContext";
+import { useDispatchCart } from "@/contexts/AppContext";
 import { Button, ButtonGroup, Card, CardBody, CardFooter, Image } from "@nextui-org/react";
 
 export const CartItem = ({item}: any) => {

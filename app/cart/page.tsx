@@ -1,6 +1,6 @@
 'use client'
 import { CartItem } from "@/components/CartItem";
-import { useCart } from "@/modules/AppContext";
+import { useCart } from "@/contexts/AppContext";
 
 const Cart = () => {
     const cart = useCart();    
