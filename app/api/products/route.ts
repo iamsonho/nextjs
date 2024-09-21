@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
     if (!cart) {
         const cart =  await createCart(device_token, item, subTotalPrice, subTotalPrice);
 
-        return Response.json({
+        return NextResponse.json({
             cart,
             status: HttpStatusCode.Created
         });
@@ -51,16 +51,16 @@ export async function POST(req: NextRequest) {
     });
 }
 
-export async function getCart(userId: string): Promise<any> {
+async function getCart(userId: string): Promise<any> {
     return await Cart.findOne({ userId });
 }
 
-export async function createCart(device_token: string, itemDTO: ItemDTO, subTotalPrice: number, totalPrice: number): Promise<any> {
+async function createCart(device_token: string, itemDTO: ItemDTO, subTotalPrice: number, totalPrice: number): Promise<any> {
     const cart = await Cart.create({device_token, items: [{...itemDTO, subTotalPrice}], totalPrice: totalPrice});
     return cart;
 }
 
-export function recalculateCart(cart: any) {
+function recalculateCart(cart: any) {
     cart.totalPrice = 0;
     cart.items.forEach((item: any) => {
         cart.totalPrice += item.subTotalPrice;

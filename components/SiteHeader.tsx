@@ -24,7 +24,6 @@ import { useCart } from "@/contexts/CartContext";
 
 export const SiteHeader = () => {
 	const { cart } = useCart();
-	console.log(111, cart);
   return (
 	<Navbar className="h-[100px] bg-gradient-to-r from-yellow-100 via-amber-200 to-lime-300">
 		<NavbarBrand>
